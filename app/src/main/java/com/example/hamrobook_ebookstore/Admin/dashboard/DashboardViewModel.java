@@ -1,4 +1,4 @@
-package com.example.hamrobook_ebookstore.ui.dashboard;
+package com.example.hamrobook_ebookstore.Admin.dashboard;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

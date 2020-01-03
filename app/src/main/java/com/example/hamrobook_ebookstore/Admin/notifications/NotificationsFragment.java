@@ -1,4 +1,4 @@
-package com.example.hamrobook_ebookstore.ui.notifications;
+package com.example.hamrobook_ebookstore.Admin.notifications;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
