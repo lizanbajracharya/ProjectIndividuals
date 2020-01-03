@@ -3,6 +3,7 @@ package com.example.hamrobook_ebookstore;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     Intent intent=new Intent(MainActivity.this,DashboardActivity.class);
                     startActivity(intent);
+                    SaveUsernamePassword();
                 }
                 else
                 {
@@ -37,5 +39,15 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+    private void SaveUsernamePassword(){
+        SharedPreferences sharedPreferences=getSharedPreferences("User",MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+
+        editor.putString("username",etUsername.getText().toString().trim());
+        editor.putString("password",etPassword.getText().toString().trim());
+        editor.commit();
+
+        Toast.makeText(this, "Successfully Saved", Toast.LENGTH_SHORT).show();
     }
 }
