@@ -22,4 +22,10 @@
         android:name="com.example.hamrobook_ebookstore.Admin.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_setting_bar"
+        android:name="com.example.hamrobook_ebookstore.Admin.Setting.SettingFragment"
+        android:label="Setting"
+        tools:layout="@layout/fragment_setting" />
 </navigation>

@@ -1,30 +1,64 @@
 package com.example.hamrobook_ebookstore;
 
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 
+import com.example.hamrobook_ebookstore.Admin.Setting.SettingFragment;
+import com.example.hamrobook_ebookstore.Admin.dashboard.DashboardFragment;
+import com.example.hamrobook_ebookstore.Admin.notifications.NotificationsFragment;
+import com.example.hamrobook_ebookstore.User.UserHomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 public class DashboardActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getSupportActionBar().hide();
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_dashboard);
-        BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(navView, navController);
-    }
-
+        loadFragment(new UserHomeFragment());
+        BottomNavigationView bottomNavigationView = findViewById(R.id.nav_view);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment fragment;
+                switch (item.getItemId()) {
+                    case R.id.navigation_home:
+                        fragment = new UserHomeFragment();
+                        loadFragment(fragment);
+                        break;
+                    case R.id.navigation_dashboard:
+                        fragment = new DashboardFragment();
+                        loadFragment(fragment);
+                        break;
+                    case R.id.navigation_notifications:
+                        fragment=new NotificationsFragment();
+                        loadFragment(fragment);
+                        break;
+                    case R.id.navigation_setting_bar:
+                        fragment = new SettingFragment();
+                        loadFragment(fragment);
+                        break;
+                }
+                return true;
+            }
+        });
 }
+    private void loadFragment(Fragment fragment) {
+        // load fragment
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.nav_host_fragment, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+}
+
