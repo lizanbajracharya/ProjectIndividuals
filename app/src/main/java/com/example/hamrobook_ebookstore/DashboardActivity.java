@@ -8,6 +8,7 @@ import android.view.WindowManager;
 import com.example.hamrobook_ebookstore.Admin.Setting.SettingFragment;
 import com.example.hamrobook_ebookstore.Admin.dashboard.BookFragment;
 import com.example.hamrobook_ebookstore.Admin.home.HomeFragment;
+import com.example.hamrobook_ebookstore.Admin.latest.LatestFragment;
 import com.example.hamrobook_ebookstore.Admin.notifications.FavoriteFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -34,6 +35,10 @@ public class DashboardActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.navigation_home:
                         fragment = new HomeFragment();
+                        loadFragment(fragment);
+                        break;
+                    case R.id.navigation_latest:
+                        fragment = new LatestFragment();
                         loadFragment(fragment);
                         break;
                     case R.id.navigation_dashboard:

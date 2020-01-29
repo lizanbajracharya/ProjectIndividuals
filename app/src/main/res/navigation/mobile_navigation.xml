@@ -10,17 +10,22 @@
         android:name="com.example.hamrobook_ebookstore.Admin.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/navigation_latest"
+        android:name="com.example.hamrobook_ebookstore.Admin.latest.LatestFragment"
+        android:label="Latest"
+        tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.hamrobook_ebookstore.Admin.dashboard.BookFragment"
-        android:label="@string/title_dashboard"
+        android:label="Books"
         tools:layout="@layout/fragment_book" />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.hamrobook_ebookstore.Admin.notifications.FavoriteFragment"
-        android:label="@string/title_notifications"
+        android:label="Favorite"
         tools:layout="@layout/fragment_favorite" />
 
     <fragment
