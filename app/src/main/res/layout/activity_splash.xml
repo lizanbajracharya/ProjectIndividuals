@@ -6,14 +6,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
+    android:background="@color/custom"
     tools:context=".SplashActivity">
 
     <ImageView
         android:id="@+id/logo"
         android:layout_gravity="center"
         android:src="@drawable/book"
-        android:layout_width="140dp"
-        android:layout_height="140dp"/>
+        android:layout_width="300dp"
+        android:layout_height="300dp"/>
 
     <TextView
         android:text="Version 1.0"

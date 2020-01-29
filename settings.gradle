@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':hamrobookwear'
 rootProject.name='Hamro Book-Ebook store'

@@ -6,9 +6,9 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.example.hamrobook_ebookstore.Admin.Setting.SettingFragment;
-import com.example.hamrobook_ebookstore.Admin.dashboard.DashboardFragment;
-import com.example.hamrobook_ebookstore.Admin.notifications.NotificationsFragment;
-import com.example.hamrobook_ebookstore.User.UserHomeFragment;
+import com.example.hamrobook_ebookstore.Admin.dashboard.BookFragment;
+import com.example.hamrobook_ebookstore.Admin.home.HomeFragment;
+import com.example.hamrobook_ebookstore.Admin.notifications.FavoriteFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
@@ -25,7 +25,7 @@ public class DashboardActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_dashboard);
-        loadFragment(new UserHomeFragment());
+        loadFragment(new HomeFragment());
         BottomNavigationView bottomNavigationView = findViewById(R.id.nav_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -33,15 +33,15 @@ public class DashboardActivity extends AppCompatActivity {
                 Fragment fragment;
                 switch (item.getItemId()) {
                     case R.id.navigation_home:
-                        fragment = new UserHomeFragment();
+                        fragment = new HomeFragment();
                         loadFragment(fragment);
                         break;
                     case R.id.navigation_dashboard:
-                        fragment = new DashboardFragment();
+                        fragment = new BookFragment();
                         loadFragment(fragment);
                         break;
                     case R.id.navigation_notifications:
-                        fragment=new NotificationsFragment();
+                        fragment=new FavoriteFragment();
                         loadFragment(fragment);
                         break;
                     case R.id.navigation_setting_bar:
