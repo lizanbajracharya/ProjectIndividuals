@@ -37,10 +37,6 @@ public class DashboardActivity extends AppCompatActivity {
                         fragment = new HomeFragment();
                         loadFragment(fragment);
                         break;
-                    case R.id.navigation_latest:
-                        fragment = new LatestFragment();
-                        loadFragment(fragment);
-                        break;
                     case R.id.navigation_dashboard:
                         fragment = new BookFragment();
                         loadFragment(fragment);

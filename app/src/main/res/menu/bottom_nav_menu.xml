@@ -6,11 +6,6 @@
         android:icon="@drawable/ic_home"
         android:title="@string/title_home" />
     <item
-        android:id="@+id/navigation_latest"
-        android:icon="@drawable/ic_new"
-        android:title="Latest" />
-
-    <item
         android:id="@+id/navigation_dashboard"
         android:icon="@drawable/ic_books"
         android:title="Books" />

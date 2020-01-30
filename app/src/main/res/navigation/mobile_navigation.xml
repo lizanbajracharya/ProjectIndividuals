@@ -10,11 +10,6 @@
         android:name="com.example.hamrobook_ebookstore.Admin.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
-    <fragment
-        android:id="@+id/navigation_latest"
-        android:name="com.example.hamrobook_ebookstore.Admin.latest.LatestFragment"
-        android:label="Latest"
-        tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
