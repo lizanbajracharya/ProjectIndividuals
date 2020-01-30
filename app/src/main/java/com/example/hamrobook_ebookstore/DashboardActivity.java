@@ -8,7 +8,6 @@ import android.view.WindowManager;
 import com.example.hamrobook_ebookstore.Admin.Setting.SettingFragment;
 import com.example.hamrobook_ebookstore.Admin.dashboard.BookFragment;
 import com.example.hamrobook_ebookstore.Admin.home.HomeFragment;
-import com.example.hamrobook_ebookstore.Admin.latest.LatestFragment;
 import com.example.hamrobook_ebookstore.Admin.notifications.FavoriteFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 

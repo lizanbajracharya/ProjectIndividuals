@@ -5,10 +5,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_height="match_parent">
+    <TextView
+        android:text="Hamro Book-Ebook Store"
+        android:textSize="35dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <com.google.android.material.tabs.TabLayout
     android:id="@+id/tabId"
-    android:background="@color/colorBlue"
+    android:background="@color/colorPrimary"
     app:tabIndicatorHeight="2dp"
     app:tabTextColor="#FFFFFF"
     android:layout_width="match_parent"
