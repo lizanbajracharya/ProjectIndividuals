@@ -10,11 +10,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     EditText etUsername,etPassword;
-    Button btnLogin;
+    TextView tvLogin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,11 +24,11 @@ public class MainActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
-        btnLogin=findViewById(R.id.btnLogin);
+        tvLogin=findViewById(R.id.tvLogin);
         etUsername=findViewById(R.id.etUsername);
         etPassword=findViewById(R.id.etPassword);
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        tvLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String username=etUsername.getText().toString();
