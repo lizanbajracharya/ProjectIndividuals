@@ -26,8 +26,8 @@ public class HomeFragment extends Fragment {
 
         tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#FFFFFF"));
         ViewPageAdapter viewPageAdapter=new ViewPageAdapter(getChildFragmentManager());
-        viewPageAdapter.addFragment(new LatestFragment(),"Latest");
         viewPageAdapter.addFragment(new AllFragment(),"ALL");
+        viewPageAdapter.addFragment(new LatestFragment(),"Latest");
 
         viewPager.setAdapter(viewPageAdapter);
         tabLayout.setupWithViewPager(viewPager);
