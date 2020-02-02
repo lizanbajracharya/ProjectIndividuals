@@ -15,8 +15,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     EditText etUsername,etPassword;
-    Button btnLogin;
-    TextView tvRegister;
+    Button btnLog,btnSignup;
+    TextView tvForget;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,12 +25,13 @@ public class MainActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
-        tvRegister=findViewById(R.id.tvRegister);
-        btnLogin=findViewById(R.id.btnLogin);
-        etUsername=findViewById(R.id.etUsername);
-        etPassword=findViewById(R.id.etPassword);
+        btnSignup=findViewById(R.id.btnSignup);
+        btnLog=findViewById(R.id.btnSign);
+        etUsername=findViewById(R.id.etUser);
+        etPassword=findViewById(R.id.etPass);
+        tvForget=findViewById(R.id.text);
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        btnLog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String username=etUsername.getText().toString();
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        tvRegister.setOnClickListener(new View.OnClickListener() {
+        btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(MainActivity.this,RegisterActivity.class);

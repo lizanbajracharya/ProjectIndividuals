@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/custom"
     android:orientation="vertical"
     tools:context=".Admin.latest.LatestFragment">
 
@@ -13,7 +12,7 @@
         android:layout_height="wrap_content">
         <TextView
             android:text="Latest Addition"
-            android:textSize="35dp"
+            android:textSize="35sp"
             android:textStyle="italic"
             android:gravity="center"
             android:textColor="@color/colorWhite"
@@ -21,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewLatest"
             android:layout_marginBottom="18dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
