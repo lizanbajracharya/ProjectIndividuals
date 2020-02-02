@@ -6,21 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/gradient"
+    android:background="@drawable/splash"
     tools:context=".SplashActivity">
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_gravity="center"
-        android:src="@drawable/book"
-        android:layout_width="300dp"
-        android:layout_height="300dp"/>
 
-    <TextView
-        android:text="Version 1.0"
-        android:layout_gravity="center"
-        android:layout_marginTop="120dp"
-        android:textSize="28sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
 </LinearLayout>
