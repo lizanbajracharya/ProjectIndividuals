@@ -6,8 +6,9 @@
     android:orientation="vertical"
     android:layout_height="match_parent">
     <TextView
-        android:background="@color/colorPrimary"
+        android:background="@color/black"
         android:padding="10dp"
+        android:textColor="@color/colorWhite"
         android:textStyle="bold"
         android:text="Hamro Book-Ebook Store"
         android:textSize="20dp"
@@ -16,7 +17,7 @@
 
     <com.google.android.material.tabs.TabLayout
     android:id="@+id/tabId"
-    android:background="@color/colorPrimary"
+    android:background="@color/black"
     app:tabIndicatorHeight="2dp"
     app:tabTextColor="#FFFFFF"
     android:layout_width="match_parent"

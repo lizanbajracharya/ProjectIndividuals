@@ -15,7 +15,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     EditText etUsername,etPassword;
-    TextView tvLogin;
+    Button btnLogin;
+    TextView tvRegister;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,11 +25,12 @@ public class MainActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
-        tvLogin=findViewById(R.id.tvLogin);
+        tvRegister=findViewById(R.id.tvRegister);
+        btnLogin=findViewById(R.id.btnLogin);
         etUsername=findViewById(R.id.etUsername);
         etPassword=findViewById(R.id.etPassword);
 
-        tvLogin.setOnClickListener(new View.OnClickListener() {
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String username=etUsername.getText().toString();
@@ -43,6 +45,14 @@ public class MainActivity extends AppCompatActivity {
                 {
                     Toast.makeText(MainActivity.this, "Invalid Username or Password", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        tvRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,RegisterActivity.class);
+                startActivity(intent);
             }
         });
     }
