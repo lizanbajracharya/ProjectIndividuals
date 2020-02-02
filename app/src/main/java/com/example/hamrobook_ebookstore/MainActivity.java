@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -12,6 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.hamrobook_ebookstore.bll.LoginBll;
+import com.example.hamrobook_ebookstore.strictmode.StrictModeClass;
 
 public class MainActivity extends AppCompatActivity {
     EditText etUsername,etPassword;
@@ -34,18 +38,7 @@ public class MainActivity extends AppCompatActivity {
         btnLog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username=etUsername.getText().toString();
-                String Password=etPassword.getText().toString();
-                if(username.equals("admin") && Password.equals("admin"))
-                {
-                    Intent intent=new Intent(MainActivity.this,DashboardActivity.class);
-                    startActivity(intent);
-                    SaveUsernamePassword();
-                }
-                else
-                {
-                    Toast.makeText(MainActivity.this, "Invalid Username or Password", Toast.LENGTH_SHORT).show();
-                }
+                login();
             }
         });
 
@@ -57,6 +50,34 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void login() {
+        if(TextUtils.isEmpty(etUsername.getText())){
+            etUsername.setError("Enter Username");
+        }
+        else if(TextUtils.isEmpty(etPassword.getText())){
+            etPassword.setError("Enter Password");
+        }
+        else{
+        String username = etUsername.getText().toString();
+        String password = etPassword.getText().toString();
+
+        LoginBll loginBLL = new LoginBll();
+
+        StrictModeClass.StrictMode();
+        if (loginBLL.checkUser(username, password)) {
+            Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
+            startActivity(intent);
+            SaveUsernamePassword();
+            Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
+            finish();
+        } else {
+            Toast.makeText(this, "Either username or password is incorrect", Toast.LENGTH_SHORT).show();
+            etUsername.requestFocus();
+        }
+        }
+    }
+
     private void SaveUsernamePassword(){
         SharedPreferences sharedPreferences=getSharedPreferences("User",MODE_PRIVATE);
         SharedPreferences.Editor editor=sharedPreferences.edit();
@@ -64,7 +85,5 @@ public class MainActivity extends AppCompatActivity {
         editor.putString("username",etUsername.getText().toString().trim());
         editor.putString("password",etPassword.getText().toString().trim());
         editor.commit();
-
-        Toast.makeText(this, "Successfully Saved", Toast.LENGTH_SHORT).show();
     }
 }
