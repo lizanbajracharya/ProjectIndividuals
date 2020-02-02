@@ -15,7 +15,7 @@
         app:srcCompat="@drawable/book" />
 
     <EditText
-        android:id="@+id/etUsername"
+        android:id="@+id/etUser"
         android:drawableLeft="@drawable/ic_username"
         android:textColor="#ffffff"
         android:background="#11000000"
@@ -29,16 +29,16 @@
         android:inputType="textEmailAddress" />
 
     <EditText
-        android:id="@+id/etPassword"
+        android:id="@+id/etPass"
         android:textColor="#ffffff"
         android:drawableLeft="@drawable/icon_password"
         android:background="#11000000"
         android:layout_width="250dp"
         android:layout_height="36dp"
         android:hint="Password"
-        android:layout_alignLeft="@+id/etUsername"
-        android:layout_alignStart="@+id/etUsername"
-        android:layout_below="@+id/etUsername"
+        android:layout_alignLeft="@+id/etUser"
+        android:layout_alignStart="@+id/etUser"
+        android:layout_below="@+id/etUser"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         android:ems="10"
@@ -51,7 +51,7 @@
         android:background="@drawable/button_rectangle_pink"
         android:textColor="#ffffff"
         android:textSize="20sp"
-        android:layout_below="@+id/etPassword"
+        android:layout_below="@+id/etPass"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:text="Login" />
