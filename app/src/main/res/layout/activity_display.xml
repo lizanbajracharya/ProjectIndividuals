@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.demotxt.myapp.recyclerview.Book_Activity"
-    android:background="#fcfcfc">
+    tools:context=".DisplayActivity"
+    android:background="@drawable/gradientfill2">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -19,6 +19,12 @@
             android:gravity="center"
             android:orientation="vertical">
 
+            <ImageButton
+                android:id="@+id/imgReverse"
+                android:layout_gravity="left"
+                android:src="@drawable/ic_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
             <ImageView
                 android:layout_width="125dp"
                 android:layout_height="170dp"
@@ -40,18 +46,42 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Category"
-                android:background="#edecec"
                 android:padding="8dp"
                 android:layout_marginTop="10dp"/>
-
-            <TextView
-                android:id="@+id/txtDesc"
-                android:textSize="18sp"
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Description"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <Button
+                    android:id="@+id/btnFavorites"
+                    android:layout_gravity="left"
+                    android:text="Favorite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+                <Button
+                    android:id="@+id/btnRead"
+                    android:layout_gravity="right"
+                    android:text="READ NOW"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/txtDesc"
+                    android:textSize="18sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Description"/>
+            </LinearLayout>
         </LinearLayout>
+
     </androidx.core.widget.NestedScrollView>
 
 
