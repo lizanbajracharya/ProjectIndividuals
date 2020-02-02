@@ -13,10 +13,8 @@ public class LoginBll {
     boolean isSuccess = false;
 
     public boolean checkUser(String username, String password) {
-
         UserApi usersAPI = Url.getInstance().create(UserApi.class);
         Call<SignUpResponse> usersCall = usersAPI.checkUser(username, password);
-
         try {
             Response<SignUpResponse> loginResponse = usersCall.execute();
             if (loginResponse.isSuccessful()) {

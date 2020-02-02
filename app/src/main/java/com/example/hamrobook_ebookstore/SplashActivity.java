@@ -10,6 +10,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.example.hamrobook_ebookstore.bll.LoginBll;
+import com.example.hamrobook_ebookstore.strictmode.StrictModeClass;
+
 public class SplashActivity extends AppCompatActivity {
 
     @Override
@@ -32,18 +35,17 @@ public class SplashActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences=getSharedPreferences("User",MODE_PRIVATE);
         String username=sharedPreferences.getString("username","");
         String password=sharedPreferences.getString("password","");
-
-        if(username.equals("admin")&&password.equals("admin")){
+        LoginBll loginBll=new LoginBll();
+        StrictModeClass.StrictMode();
+        if(loginBll.checkUser(username, password)){
             Intent intent=new Intent(SplashActivity.this,DashboardActivity.class);
             startActivity(intent);
             finish();
-            Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show();
         }
         else{
             Intent intent=new Intent(SplashActivity.this,MainActivity.class);
             startActivity(intent);
             finish();
-            Toast.makeText(this, "Invalid", Toast.LENGTH_SHORT).show();
         }
     }
 }
