@@ -48,5 +48,10 @@ dependencies {
     implementation 'com.google.android:flexbox:0.3.2'
     implementation 'br.com.simplepass:loading-button-android:1.14.0'
 
+    implementation 'com.joanzapata.iconify:android-iconify-fontawesome:2.1.+'
+    implementation 'com.paypal.sdk:paypal-android-sdk:2.15.3'
+    implementation 'com.github.ivbaranov:materialfavoritebutton:0.1.4'
+
+    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
 
 }

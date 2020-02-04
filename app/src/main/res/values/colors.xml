@@ -30,4 +30,10 @@
     <color name="tab_indicator_gray">#c0c0c0</color>
     <color name="intro_title_color">#000000</color>
     <color name="intro_description_color">#656565</color>
+
+    <color name="fragrance_title">#4c4c4c</color>
+    <color name="line">#D3D3D3</color>
+
+    <color name="fragranceColor">#FFFFFF</color>
+    <color name="colorLine">#D3D3D3</color>
 </resources>

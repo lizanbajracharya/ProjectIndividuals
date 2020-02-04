@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradientfill2"
     android:orientation="vertical"
     tools:context=".SearchActivity">
 
@@ -26,7 +25,7 @@
         app:layout_constraintEnd_toStartOf="@+id/imgSearch"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/imgBack"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/imgSearch"
