@@ -94,7 +94,6 @@
             android:layout_marginLeft="16dp"
             android:layout_toRightOf="@id/icon_set"
             android:text="About Us"
-            android:textColor="#FFFFFF"
             android:textSize="20dp"></TextView>
 
         <ImageView
@@ -128,7 +127,6 @@
             android:layout_marginLeft="16dp"
             android:layout_toRightOf="@id/icon_sh"
             android:text="LogOut"
-            android:textColor="#FFFFFF"
             android:textSize="20dp"></TextView>
 
         <ImageView
@@ -140,6 +138,36 @@
 
         </ImageView>
     </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/cart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp">
 
+        <ImageView
+            android:id="@+id/car2"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/cart">
+
+        </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_toRightOf="@id/car2"
+            android:text="Cart"
+            android:textSize="20dp"></TextView>
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/arrow_dark">
+
+        </ImageView>
+    </RelativeLayout>
 
 </LinearLayout>
