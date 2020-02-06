@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -11,9 +12,16 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.hamrobook_ebookstore.Url.Url;
+import com.example.hamrobook_ebookstore.model.Book;
+import com.squareup.picasso.Picasso;
+
+import java.io.Writer;
+import java.util.Locale;
+
 public class DisplayActivity extends AppCompatActivity {
 
-    private TextView tvtitle,tvdescription,tvcategory;
+    private TextView tvtitle,tvdescription,tvcategory,tvWriter;
     private ImageView img;
     private ImageButton imgRead,imgFavorite;
     ImageButton imgReverse;
@@ -28,6 +36,7 @@ public class DisplayActivity extends AppCompatActivity {
         tvtitle =  findViewById(R.id.txttitle);
         tvdescription =  findViewById(R.id.txtDesc);
         tvcategory =  findViewById(R.id.txtCat);
+        tvWriter=findViewById(R.id.tvWriter);
         img =  findViewById(R.id.bookthumbnail);
         imgReverse=findViewById(R.id.imgReverse);
         imgRead=findViewById(R.id.btnRead);
@@ -35,14 +44,23 @@ public class DisplayActivity extends AppCompatActivity {
 
         // Recieve data
         Intent intent = getIntent();
-        String Title = intent.getExtras().getString("Title");
-        String Description = intent.getExtras().getString("Description");
-        int image = intent.getExtras().getInt("Thumbnail") ;
+        String Title = intent.getExtras().getString("BookName");
+        String Description = intent.getExtras().getString("Category");
+        String BookWriter = intent.getExtras().getString("Writer");
+        String image = intent.getExtras().getString("Thumbnail");
 
         // Setting values
 
         tvtitle.setText(Title);
+        tvcategory.setText(Description);
         tvdescription.setText(Description);
-        img.setImageResource(image);
+        tvWriter.setText(BookWriter);
+
+        imgRead.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(this,)
+            }
+        });
     }
 }

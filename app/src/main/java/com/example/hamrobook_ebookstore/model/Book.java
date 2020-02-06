@@ -1,24 +1,24 @@
 package com.example.hamrobook_ebookstore.model;
 
 public class Book {
-    private String Title;
+    private String BookName;
     private String Category ;
-    private String Description ;
-    private int Thumbnail ;
+    private String BookContent ;
+    private String BookWriter ;
 
-    public Book(String title, String category, String description, int thumbnail) {
-        Title = title;
+    public Book(String bookName, String category, String bookContent, String bookWriter) {
+        BookName = bookName;
         Category = category;
-        Description = description;
-        Thumbnail = thumbnail;
+        BookContent = bookContent;
+        BookWriter = bookWriter;
     }
 
-    public String getTitle() {
-        return Title;
+    public String getBookName() {
+        return BookName;
     }
 
-    public void setTitle(String title) {
-        Title = title;
+    public void setBookName(String bookName) {
+        BookName = bookName;
     }
 
     public String getCategory() {
@@ -29,19 +29,19 @@ public class Book {
         Category = category;
     }
 
-    public String getDescription() {
-        return Description;
+    public String getBookContent() {
+        return BookContent;
     }
 
-    public void setDescription(String description) {
-        Description = description;
+    public void setBookContent(String bookContent) {
+        BookContent = bookContent;
     }
 
-    public int getThumbnail() {
-        return Thumbnail;
+    public String getBookWriter() {
+        return BookWriter;
     }
 
-    public void setThumbnail(int thumbnail) {
-        Thumbnail = thumbnail;
+    public void setBookWriter(String bookWriter) {
+        BookWriter = bookWriter;
     }
 }
