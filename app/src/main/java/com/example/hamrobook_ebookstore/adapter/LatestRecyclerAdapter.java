@@ -12,18 +12,22 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.hamrobook_ebookstore.BookActivity;
 import com.example.hamrobook_ebookstore.DisplayActivity;
 import com.example.hamrobook_ebookstore.R;
+import com.example.hamrobook_ebookstore.Url.Url;
 import com.example.hamrobook_ebookstore.model.Book;
+import com.example.hamrobook_ebookstore.model.Product;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class LatestRecyclerAdapter extends RecyclerView.Adapter<LatestRecyclerAdapter.MyViewHolder> {
 
     private Context mContext ;
-    private List<Book> mData ;
+    private List<Product> mData ;
 
-    public LatestRecyclerAdapter(Context mContext, List<Book> mData) {
+    public LatestRecyclerAdapter(Context mContext, List<Product> mData) {
         this.mContext = mContext;
         this.mData = mData;
     }
@@ -39,21 +43,22 @@ public class LatestRecyclerAdapter extends RecyclerView.Adapter<LatestRecyclerAd
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
-        holder.tv_book_title.setText(mData.get(position).getTitle());
-        holder.img_book_thumbnail.setImageResource(mData.get(position).getThumbnail());
+        final Product item=mData.get(position);
+        holder.tv_book_title.setText(item.getProductName());
+        Picasso.get().load(Url.base_url_image+mData.get(position).getProductImage()).into(holder.img_book_thumbnail);
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent = new Intent(mContext, DisplayActivity.class);
-
+                Intent intent = new Intent(mContext, BookActivity.class);
                 // passing data to the book activity
-                intent.putExtra("Title",mData.get(position).getTitle());
-                intent.putExtra("Description",mData.get(position).getDescription());
-                intent.putExtra("Thumbnail",mData.get(position).getThumbnail());
+                intent.putExtra("Title",mData.get(position).getProductName());
+                intent.putExtra("Description",mData.get(position).getProductDescription());
+                intent.putExtra("Thumbnail",mData.get(position).getProductImage());
+                intent.putExtra("Price",mData.get(position).getPrice());
+                intent.putExtra("Writer",mData.get(position).getWriter());
+                intent.putExtra("Stock",mData.get(position).getStock());
                 // start the activity
                 mContext.startActivity(intent);
-
             }
         });
     }

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hamrobook_ebookstore.R;
 import com.example.hamrobook_ebookstore.Url.Url;
+import com.example.hamrobook_ebookstore.adapter.AllAdapter;
 import com.example.hamrobook_ebookstore.adapter.FavoriteAdapter;
 import com.example.hamrobook_ebookstore.adapter.LatestRecyclerAdapter;
 import com.example.hamrobook_ebookstore.api.ProductApi;
@@ -47,7 +48,7 @@ public class FavoriteFragment extends Fragment {
                     Toast.makeText(getContext(), "Toast " + response.code(), Toast.LENGTH_SHORT).show();
                     return;
                 }
-                FavoriteAdapter itemAdapter=new FavoriteAdapter(getActivity(),response.body());
+                AllAdapter itemAdapter=new AllAdapter(getActivity(),response.body());
                 recyclerView.setAdapter(itemAdapter);
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
