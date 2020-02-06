@@ -18,9 +18,7 @@ public class LoginBll {
         try {
             Response<SignUpResponse> loginResponse = usersCall.execute();
             if (loginResponse.isSuccessful()) {
-
                 Url.token += loginResponse.body().getToken();
-                // Url.Cookie = imageResponseResponse.headers().get("Set-Cookie");
                 isSuccess = true;
             }
         } catch (IOException e) {

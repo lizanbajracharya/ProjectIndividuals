@@ -24,6 +24,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/relativeLayoutProfile"
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:layout_marginTop="22dp"
@@ -49,19 +50,20 @@
             android:textColor="#ffff"
             android:textSize="22dp"></TextView>
 
+
         <TextView
+            android:id="@+id/tvMobile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/username"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="12dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
             android:layout_toRightOf="@+id/profile"
             android:fontFamily="@font/roboto_regular"
             android:text="0815 *** **"
             android:textColor="#ffff"
             android:textSize="16dp"></TextView>
-
 
         <ImageView
             android:layout_width="16dp"

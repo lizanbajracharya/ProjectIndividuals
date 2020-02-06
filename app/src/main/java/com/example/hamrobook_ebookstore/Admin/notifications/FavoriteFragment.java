@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -11,39 +12,53 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hamrobook_ebookstore.R;
+import com.example.hamrobook_ebookstore.Url.Url;
+import com.example.hamrobook_ebookstore.adapter.FavoriteAdapter;
 import com.example.hamrobook_ebookstore.adapter.LatestRecyclerAdapter;
+import com.example.hamrobook_ebookstore.api.ProductApi;
 import com.example.hamrobook_ebookstore.model.Book;
+import com.example.hamrobook_ebookstore.model.Product;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class FavoriteFragment extends Fragment {
 
-    List<Book> lstBook ;
+    RecyclerView recyclerView;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_favorite, container, false);
-        lstBook = new ArrayList<>();
-        lstBook.add(new Book("The Vegitarian","Categorie Book","Description book",R.drawable.background_01));
-        lstBook.add(new Book("The Wild Robot","Categorie Book","Description book",R.drawable.background_01));
-        lstBook.add(new Book("Maria Semples","Categorie Book","Description book",R.drawable.background_01));
-        lstBook.add(new Book("The Martian","Categorie Book","Description book",R.drawable.background_01));
-        lstBook.add(new Book("He Died with...","Categorie Book","Description book",R.drawable.background_01));
-        lstBook.add(new Book("The Vegitarian","Categorie Book","Description book",R.drawable.background_01));
-        lstBook.add(new Book("The Wild Robot","Categorie Book","Description book",R.drawable.background_01));
-        lstBook.add(new Book("Maria Semples","Categorie Book","Description book",R.drawable.background_01));
-        lstBook.add(new Book("The Martian","Categorie Book","Description book",R.drawable.background_01));
-        lstBook.add(new Book("He Died with...","Categorie Book","Description book",R.drawable.background_01));
-        lstBook.add(new Book("The Vegitarian","Categorie Book","Description book",R.drawable.background_01));
-        lstBook.add(new Book("The Wild Robot","Categorie Book","Description book",R.drawable.background_01));
-        lstBook.add(new Book("Maria Semples","Categorie Book","Description book",R.drawable.background_01));
-        lstBook.add(new Book("The Martian","Categorie Book","Description book",R.drawable.background_01));
-        lstBook.add(new Book("He Died with...","Categorie Book","Description book",R.drawable.background_01));
-
-        RecyclerView myrv = root.findViewById(R.id.recyclerViewFavorite);
-        LatestRecyclerAdapter myAdapter = new LatestRecyclerAdapter(getActivity(),lstBook);
-        myrv.setLayoutManager(new GridLayoutManager(getActivity(),3));
-        myrv.setAdapter(myAdapter);
+        recyclerView = root.findViewById(R.id.recyclerViewFavorite);
+        getProduct();
         return root;
+    }
+
+    private void getProduct(){
+        ProductApi productApi= Url.getInstance().create(ProductApi.class);
+        Call<List<Product>> listCall= productApi.getProduct();
+        listCall.enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                if(!response.isSuccessful()){
+                    Toast.makeText(getContext(), "Toast " + response.code(), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                FavoriteAdapter itemAdapter=new FavoriteAdapter(getActivity(),response.body());
+                recyclerView.setAdapter(itemAdapter);
+                recyclerView.setHasFixedSize(true);
+                recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
+                itemAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+
+                Toast.makeText(getActivity(), "Error " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
