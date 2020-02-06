@@ -10,6 +10,7 @@ public class Url {
     // public static final String base_url = "http://172.100.100.5:3000/";
     public static String token = "Bearer ";
     public static String imagePath = base_url + "uploads/" ;
+    public static String pdf = base_url + "load/" ;
 
     public static Retrofit getInstance() {
         Retrofit retrofit = new Retrofit.Builder()

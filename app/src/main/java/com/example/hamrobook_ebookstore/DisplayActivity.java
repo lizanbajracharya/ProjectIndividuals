@@ -44,10 +44,10 @@ public class DisplayActivity extends AppCompatActivity {
 
         // Recieve data
         Intent intent = getIntent();
-        String Title = intent.getExtras().getString("BookName");
+        final String Title = intent.getExtras().getString("BookName");
         String Description = intent.getExtras().getString("Category");
         String BookWriter = intent.getExtras().getString("Writer");
-        String image = intent.getExtras().getString("Thumbnail");
+        final String content = intent.getExtras().getString("BookContent");
 
         // Setting values
 
@@ -59,7 +59,10 @@ public class DisplayActivity extends AppCompatActivity {
         imgRead.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(this,)
+                Intent intent=new Intent(DisplayActivity.this,PdfActivity.class);
+                intent.putExtra("PDF",content);
+                intent.putExtra("Name",Title);
+                startActivity(intent);
             }
         });
     }
