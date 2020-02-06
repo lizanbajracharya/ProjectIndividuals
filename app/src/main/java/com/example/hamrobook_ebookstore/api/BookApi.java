@@ -13,7 +13,7 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface BookApi {
-    @GET("book/listbook")
+    @GET("book")
     Call<List<Book>> getProduct();
 
     @FormUrlEncoded
