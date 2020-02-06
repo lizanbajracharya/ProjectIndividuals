@@ -7,14 +7,18 @@ public class Product {
     private String productDescription;
     private String price;
     private String Stock;
+    private String Date;
 
-    public Product(String productName, String productImage, String writer, String productDescription, String price, String stock) {
+
+
+    public Product(String productName, String productImage, String writer, String productDescription, String price, String stock, String date) {
         this.productName = productName;
         this.productImage = productImage;
-        Writer = writer;
+        this.Writer = writer;
         this.productDescription = productDescription;
         this.price = price;
-        Stock = stock;
+        this.Stock = stock;
+        this.Date = date;
     }
 
     public String getProductName() {
@@ -63,5 +67,13 @@ public class Product {
 
     public void setStock(String stock) {
         Stock = stock;
+    }
+
+    public String getDate() {
+        return Date;
+    }
+
+    public void setDate(String date) {
+        Date = date;
     }
 }

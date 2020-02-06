@@ -15,7 +15,7 @@ public class DisplayActivity extends AppCompatActivity {
 
     private TextView tvtitle,tvdescription,tvcategory;
     private ImageView img;
-    private Button btnRead,btnFavourites;
+    private ImageButton imgRead,imgFavorite;
     ImageButton imgReverse;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +30,8 @@ public class DisplayActivity extends AppCompatActivity {
         tvcategory =  findViewById(R.id.txtCat);
         img =  findViewById(R.id.bookthumbnail);
         imgReverse=findViewById(R.id.imgReverse);
-        btnRead=findViewById(R.id.btnRead);
-        btnFavourites=findViewById(R.id.btnFavorites);
+        imgRead=findViewById(R.id.btnRead);
+        imgFavorite=findViewById(R.id.btnFavorites);
 
         // Recieve data
         Intent intent = getIntent();
