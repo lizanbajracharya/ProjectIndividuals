@@ -5,8 +5,4 @@
         android:icon="@drawable/badge_circle"
         android:title="Notifications"
         app:showAsAction="always" />
-    <item
-        android:id="@+id/wish"
-        android:title="@string/wish_list"
-        app:showAsAction="never"/>
 </menu>
