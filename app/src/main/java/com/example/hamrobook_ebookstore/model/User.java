@@ -1,6 +1,7 @@
 package com.example.hamrobook_ebookstore.model;
 
 public class User {
+    private String Id;
     private String mobileNumber;
     private String password;
     private String Email;

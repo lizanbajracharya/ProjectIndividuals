@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hamrobook_ebookstore.MainActivity;
+import com.example.hamrobook_ebookstore.ProfileActivity;
 import com.example.hamrobook_ebookstore.R;
 import com.example.hamrobook_ebookstore.Url.Url;
 import com.example.hamrobook_ebookstore.api.UserApi;
@@ -91,7 +92,8 @@ public class SettingFragment extends Fragment {
         relativeLayoutProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent=new Intent(getActivity(), ProfileActivity.class);
+                startActivity(intent);
             }
         });
 
