@@ -20,6 +20,7 @@ public class HomeFragment extends Fragment {
     private ViewPager viewPager;
     private TabLayout tabLayout;
 
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
@@ -35,6 +36,7 @@ public class HomeFragment extends Fragment {
         tabLayout.setupWithViewPager(viewPager);
         return root;
     }
+
 
 
 }
