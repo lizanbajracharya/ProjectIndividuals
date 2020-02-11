@@ -1,30 +1,28 @@
 package com.example.hamrobook_ebookstore;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.app.Notification;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.hamrobook_ebookstore.Url.Url;
-import com.example.hamrobook_ebookstore.model.Book;
-import com.squareup.picasso.Picasso;
-
-import java.io.Writer;
-import java.util.Locale;
+import com.example.hamrobook_ebookstore.channel.CreateChannel;
 
 public class DisplayActivity extends AppCompatActivity {
-
+    NotificationManagerCompat notificationManagerCompat;
     private TextView tvtitle,tvdescription,tvcategory,tvWriter;
     private ImageView img;
     private ImageButton imgRead,imgFavorite;
     ImageButton imgReverse;
+    int id=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +30,10 @@ public class DisplayActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_display);
+
+        notificationManagerCompat=NotificationManagerCompat.from(this);
+        CreateChannel channel=new CreateChannel(this);
+        channel.createChannel();
 
         tvtitle =  findViewById(R.id.txttitle);
         tvdescription =  findViewById(R.id.txtDesc);
@@ -65,5 +67,24 @@ public class DisplayActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        imgFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DisplayNotication();
+                imgFavorite.setVisibility(View.INVISIBLE);
+            }
+        });
+    }
+
+    public void DisplayNotication(){
+       Notification notification=new NotificationCompat.Builder(this,CreateChannel.CHANNEL_1)
+               .setSmallIcon(R.drawable.ic_notification)
+               .setContentTitle("Favorite")
+               .setContentText("Added to Favorite Successful")
+               .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+               .build();
+       notificationManagerCompat.notify(id,notification);
+       id++;
     }
 }

@@ -9,6 +9,7 @@ public class Url {
     public static final String base_url_image = "http://10.0.2.2:3000/upload/";
     // public static final String base_url = "http://172.100.100.5:3000/";
     public static String token = "Bearer ";
+    public static String userid;
     public static String imagePath = base_url + "uploads/" ;
     public static String pdf = base_url + "load/" ;
 

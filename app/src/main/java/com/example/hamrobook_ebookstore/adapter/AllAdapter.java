@@ -49,6 +49,7 @@ public class AllAdapter extends RecyclerView.Adapter<AllAdapter.ViewHolder> {
             public void onClick(View v) {
                 Intent intent = new Intent(context, BookActivity.class);
                 // passing data to the book activity
+                intent.putExtra("id",productList.get(position).getId());
                 intent.putExtra("Title",productList.get(position).getProductName());
                 intent.putExtra("Description",productList.get(position).getProductDescription());
                 intent.putExtra("Thumbnail",productList.get(position).getProductImage());
