@@ -1,6 +1,7 @@
 package com.example.hamrobook_ebookstore.model;
 
 public class Product {
+    private String Id;
     private String productName;
     private String productImage;
     private String Writer;
@@ -11,7 +12,8 @@ public class Product {
 
 
 
-    public Product(String productName, String productImage, String writer, String productDescription, String price, String stock, String date) {
+    public Product(String Id,String productName, String productImage, String writer, String productDescription, String price, String stock, String date) {
+        this.Id=Id;
         this.productName = productName;
         this.productImage = productImage;
         this.Writer = writer;
@@ -75,5 +77,13 @@ public class Product {
 
     public void setDate(String date) {
         Date = date;
+    }
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        Id = id;
     }
 }

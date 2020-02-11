@@ -1,12 +1,14 @@
 package com.example.hamrobook_ebookstore.model;
 
 public class Book {
+    private String Id;
     private String BookName;
     private String Category ;
     private String BookContent ;
     private String BookWriter ;
 
-    public Book(String bookName, String category, String bookContent, String bookWriter) {
+    public Book(String Id,String bookName, String category, String bookContent, String bookWriter) {
+        this.Id=Id;
         BookName = bookName;
         Category = category;
         BookContent = bookContent;
@@ -43,5 +45,13 @@ public class Book {
 
     public void setBookWriter(String bookWriter) {
         BookWriter = bookWriter;
+    }
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        Id = id;
     }
 }

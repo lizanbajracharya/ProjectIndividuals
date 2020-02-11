@@ -78,9 +78,6 @@ public class SettingFragment extends Fragment {
                 else {
                     Toast.makeText(getActivity(), "Error ", Toast.LENGTH_SHORT).show();
                 }
-//                String username=response.body().getUsername();
-//                String mobilenumber=response.body().getMobileNumber();
-
             }
 
             @Override
