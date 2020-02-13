@@ -159,7 +159,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_toRightOf="@id/car2"
-            android:text="Cart"
+            android:text="Order History"
             android:textSize="20dp"></TextView>
 
         <ImageView

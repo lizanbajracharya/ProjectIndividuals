@@ -41,8 +41,7 @@ public class PdfActivity extends AppCompatActivity {
         imgBk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(PdfActivity.this,DashboardActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
     }
