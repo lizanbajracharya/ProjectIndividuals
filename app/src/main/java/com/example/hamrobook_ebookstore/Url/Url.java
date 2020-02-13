@@ -12,7 +12,7 @@ public class Url {
     public static String userid;
     public static String imagePath = base_url + "uploads/" ;
     public static String pdf = base_url + "load/" ;
-
+    public static String category = base_url + "loadimg/" ;
     public static Retrofit getInstance() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(base_url)

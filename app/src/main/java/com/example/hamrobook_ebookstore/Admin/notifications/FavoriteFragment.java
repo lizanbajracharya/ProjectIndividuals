@@ -14,8 +14,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.hamrobook_ebookstore.R;
 import com.example.hamrobook_ebookstore.Url.Url;
 import com.example.hamrobook_ebookstore.adapter.AllAdapter;
+import com.example.hamrobook_ebookstore.adapter.BookAdapter;
 import com.example.hamrobook_ebookstore.adapter.FavoriteAdapter;
 import com.example.hamrobook_ebookstore.adapter.LatestRecyclerAdapter;
+import com.example.hamrobook_ebookstore.api.FavoriteApi;
 import com.example.hamrobook_ebookstore.api.ProductApi;
 import com.example.hamrobook_ebookstore.model.Book;
 import com.example.hamrobook_ebookstore.model.Product;
@@ -39,25 +41,24 @@ public class FavoriteFragment extends Fragment {
     }
 
     private void getProduct(){
-        ProductApi productApi= Url.getInstance().create(ProductApi.class);
-        Call<List<Product>> listCall= productApi.getProduct();
-        listCall.enqueue(new Callback<List<Product>>() {
+        FavoriteApi favoriteApi= Url.getInstance().create(FavoriteApi.class);
+        Call<List<Book>> listCall= favoriteApi.getFavorite(Url.token);
+        listCall.enqueue(new Callback<List<Book>>() {
             @Override
-            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+            public void onResponse(Call<List<Book>> call, Response<List<Book>> response) {
                 if(!response.isSuccessful()){
                     Toast.makeText(getContext(), "Toast " + response.code(), Toast.LENGTH_SHORT).show();
                     return;
                 }
-                AllAdapter itemAdapter=new AllAdapter(getActivity(),response.body());
+                FavoriteAdapter itemAdapter=new FavoriteAdapter(getActivity(),response.body());
                 recyclerView.setAdapter(itemAdapter);
                 recyclerView.setHasFixedSize(true);
-                recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
+                recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),1));
                 itemAdapter.notifyDataSetChanged();
             }
 
             @Override
-            public void onFailure(Call<List<Product>> call, Throwable t) {
-
+            public void onFailure(Call<List<Book>> call, Throwable t) {
                 Toast.makeText(getActivity(), "Error " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
