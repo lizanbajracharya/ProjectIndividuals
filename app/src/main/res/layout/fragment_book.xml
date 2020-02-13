@@ -35,6 +35,7 @@
         android:id="@+id/recyclerViewBook"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
+        android:paddingBottom="20dp"
         android:layout_height="wrap_content"/>
 
 </LinearLayout>

@@ -3,6 +3,8 @@ package com.example.hamrobook_ebookstore;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -10,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hamrobook_ebookstore.Url.Url;
@@ -25,23 +28,23 @@ import retrofit2.Response;
 
 public class CategoryActivity extends AppCompatActivity {
     RecyclerView recyclerView;
-    ImageView itemImage;
     String categoryid;
     ImageButton btnback;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_ACTION_BAR);
+        getSupportActionBar().hide();
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_category);
 
         btnback=findViewById(R.id.imgBk);
         recyclerView=findViewById(R.id.MedicineRecyclerView);
-//        itemImage=findViewById(R.id.imgItem);
 
         btnback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(CategoryActivity.this,DashboardActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
 
@@ -65,7 +68,7 @@ public class CategoryActivity extends AppCompatActivity {
                 BookAdapter itemAdapter =new BookAdapter(CategoryActivity.this,response.body());
                 recyclerView.setAdapter(itemAdapter);
                 recyclerView.setHasFixedSize(true);
-                recyclerView.setLayoutManager(new GridLayoutManager(CategoryActivity.this,2));
+                recyclerView.setLayoutManager(new LinearLayoutManager(CategoryActivity.this));
                 itemAdapter.notifyDataSetChanged();
             }
 

@@ -101,8 +101,7 @@ public class DisplayActivity extends AppCompatActivity {
         imgReverse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(DisplayActivity.this,DashboardActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
     }

@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hamrobook_ebookstore.MainActivity;
+import com.example.hamrobook_ebookstore.OrderActivity;
 import com.example.hamrobook_ebookstore.ProfileActivity;
 import com.example.hamrobook_ebookstore.R;
 import com.example.hamrobook_ebookstore.Url.Url;
@@ -39,7 +40,7 @@ import static android.content.Context.MODE_PRIVATE;
 public class SettingFragment extends Fragment {
 
     TextView username,mobilenumber;
-    RelativeLayout relativelayout,relativeLayoutProfile;
+    RelativeLayout relativelayout,relativeLayoutProfile,cart;
     public SettingFragment() {
         // Required empty public constructor
     }
@@ -52,6 +53,7 @@ public class SettingFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_setting, container, false);
         relativelayout=root.findViewById(R.id.relativelayout);
         relativeLayoutProfile=root.findViewById(R.id.relativeLayoutProfile);
+        cart=root.findViewById(R.id.cart);
         username=root.findViewById(R.id.username);
         mobilenumber=root.findViewById(R.id.tvMobile);
         relativelayout.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +92,14 @@ public class SettingFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getActivity(), ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), OrderActivity.class);
                 startActivity(intent);
             }
         });
