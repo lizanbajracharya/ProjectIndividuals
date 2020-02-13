@@ -31,10 +31,10 @@ import retrofit2.Response;
 
 public class BookActivity extends AppCompatActivity {
     Toolbar toolbar;
-    ImageButton imgBk;
     TextView title,description,price,tvId;
     Button cart_button;
     private ImageView img;
+    ImageButton imgbk;
     String Id;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -64,19 +64,27 @@ public class BookActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_book);
 
-        imgBk=findViewById(R.id.imgBk);
         title=findViewById(R.id.booktitle);
         description=findViewById(R.id.tvdescription);
         price=findViewById(R.id.price);
         cart_button=findViewById(R.id.cart_button);
         tvId=findViewById(R.id.tvId);
         img=findViewById(R.id.fragranceImage);
+        imgbk=findViewById(R.id.imgBk);
+
+        imgbk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
 
         Intent intent = getIntent();
-        String Title = intent.getExtras().getString("Title");
+        final String Title = intent.getExtras().getString("Title");
         String Description = intent.getExtras().getString("Description");
         String image = intent.getExtras().getString("Thumbnail") ;
-        String prices = intent.getExtras().getString("Price") ;
+        final String prices = intent.getExtras().getString("Price") ;
         String Bookid=intent.getExtras().getString("id");
         Id=tvId.getText().toString();
         // Setting values
@@ -89,7 +97,9 @@ public class BookActivity extends AppCompatActivity {
         cart_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(BookActivity.this,CartActivity.class);
+                Intent intent=new Intent(BookActivity.this,BuyActivity.class);
+                intent.putExtra("name",Title);
+                intent.putExtra("rate",prices);
                 startActivity(intent);
             }
         });
