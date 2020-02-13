@@ -24,6 +24,7 @@
         <activity android:name=".SearchActivity" />
         <activity android:name=".IntroActivity" />
         <activity android:name=".DisplayActivity" />
+        <activity android:name=".CategoryActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
