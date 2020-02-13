@@ -57,7 +57,6 @@ public class BookFragment extends Fragment {
     private void getProduct(){
         BookApi productApi= Url.getInstance().create(BookApi.class);
         Call<List<Book>> listCall= productApi.getProduct();
-
         listCall.enqueue(new Callback<List<Book>>() {
             @Override
             public void onResponse(Call<List<Book>> call, Response<List<Book>> response) {

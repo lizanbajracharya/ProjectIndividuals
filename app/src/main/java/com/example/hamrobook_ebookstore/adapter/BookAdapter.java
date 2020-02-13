@@ -41,15 +41,15 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         final Book item=bookList.get(position);
+        holder.tvID.setText(item.getBookId());
         holder.tvBookName.setText(item.getBookName());
-        holder.tvCategory.setText(item.getCategory());
         holder.tvWriter.setText(item.getBookWriter());
         holder.constraintlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, DisplayActivity.class);
                 // passing data to the book activity
-                intent.putExtra("id",bookList.get(position).getId());
+                intent.putExtra("id",bookList.get(position).getBookId());
                intent.putExtra("BookName",bookList.get(position).getBookName());
                intent.putExtra("Category",bookList.get(position).getCategory());
                intent.putExtra("Writer",bookList.get(position).getBookWriter());
@@ -67,13 +67,14 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView tvBookName,tvWriter,tvCategory;
+        TextView tvBookName,tvWriter,tvCategory,tvID;
        ConstraintLayout constraintlayout;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvBookName =  itemView.findViewById(R.id.tvBookname) ;
             tvCategory =  itemView.findViewById(R.id.tvCategory);
             tvWriter =  itemView.findViewById(R.id.tvWriter);
+            tvID=itemView.findViewById(R.id.tvID);
             constraintlayout=itemView.findViewById(R.id.contraintlayout);
         }
     }
