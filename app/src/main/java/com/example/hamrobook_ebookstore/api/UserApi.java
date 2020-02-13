@@ -3,7 +3,6 @@ package com.example.hamrobook_ebookstore.api;
 import com.example.hamrobook_ebookstore.model.User;
 import com.example.hamrobook_ebookstore.serverresponse.SignUpResponse;
 
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -11,9 +10,8 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.PATCH;
 import retrofit2.http.POST;
-import retrofit2.http.PUT;
-import retrofit2.http.Path;
 
 public interface UserApi {
     @POST("user/signup")
@@ -26,6 +24,6 @@ public interface UserApi {
     @GET("user/me")
     Call<User> getUserDetails(@Header("Authorization")String token);
 
-    @PUT("user/me")
+    @PATCH("user/me")
     Call<User> UpdateDetails(@Header("Authorization")String token,@Body User users);
 }
