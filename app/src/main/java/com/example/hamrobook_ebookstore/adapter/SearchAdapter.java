@@ -5,42 +5,36 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hamrobook_ebookstore.DisplayActivity;
 import com.example.hamrobook_ebookstore.R;
-import com.example.hamrobook_ebookstore.Url.Url;
 import com.example.hamrobook_ebookstore.model.Book;
-import com.example.hamrobook_ebookstore.model.Product;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.MyViewHolder> {
+public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder> {
     private Context context;
     private List<Book> bookList;
 
-    public FavoriteAdapter(Context context, List<Book> booklist) {
+    public SearchAdapter(Context context, List<Book> bookList) {
         this.context = context;
-        this.bookList = booklist;
+        this.bookList = bookList;
     }
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view ;
-        view= LayoutInflater.from(parent.getContext()).inflate(R.layout.book_layout,parent,false);
-        return new MyViewHolder(view);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.book_layout,parent,false);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         final Book item=bookList.get(position);
         holder.tvID.setText(item.getBookId());
         holder.tvBookName.setText(item.getBookName());
@@ -57,6 +51,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.MyView
                 intent.putExtra("Writer",bookList.get(position).getBookWriter());
                 intent.putExtra("BookContent",bookList.get(position).getBookContent());
                 // start the activity
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
         });
@@ -67,10 +62,10 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.MyView
         return bookList.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder{
         TextView tvBookName,tvWriter,tvCategory,tvID;
         ConstraintLayout constraintlayout;
-        public MyViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvBookName =  itemView.findViewById(R.id.tvBookname) ;
             tvCategory =  itemView.findViewById(R.id.tvCategory);
