@@ -9,7 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:padding="20sp"
-        android:background="#213970"
+        android:background="#FF4500"
         android:layout_height="wrap_content">
 
         <TextView
@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:layout_marginTop="22dp"
-        android:background="#213970">
+        android:background="#FF4500">
 
         <ImageView
             android:id="@+id/profile"
@@ -78,7 +78,6 @@
 
     <RelativeLayout
         android:id="@+id/relativeAbout"
-        android:background="#213970"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="34dp">
@@ -93,7 +92,6 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:textColor="#FFFFFF"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="16dp"
@@ -113,7 +111,6 @@
 
     <RelativeLayout
         android:id="@+id/relativelayout"
-        android:background="#213970"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="34dp">
@@ -133,7 +130,6 @@
             android:layout_marginLeft="16dp"
             android:layout_toRightOf="@id/icon_sh"
             android:text="LogOut"
-            android:textColor="#FFFFFF"
             android:textSize="20dp"></TextView>
 
         <ImageView
@@ -147,7 +143,6 @@
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/cart"
-        android:background="#213970"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="34dp">
@@ -163,7 +158,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#FFFFFF"
             android:layout_marginLeft="16dp"
             android:layout_toRightOf="@id/car2"
             android:text="Order History"
