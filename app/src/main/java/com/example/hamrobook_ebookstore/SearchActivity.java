@@ -53,9 +53,7 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 BookApi bookApi= Url.getInstance().create(BookApi.class);
-
                 Call<List<Book>> voidCall=bookApi.searchBook(tvSearch.getText().toString());
-
                 voidCall.enqueue(new Callback<List<Book>>() {
                     @Override
                     public void onResponse(Call<List<Book>> call, Response<List<Book>> response) {

@@ -17,13 +17,13 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:padding="@dimen/activity_horizontal_margin"
-            android:scaleType="centerInside"
-            android:background="@color/fragranceColor"/>
+            android:scaleType="centerInside"/>
 
         <TextView
             android:id="@+id/booktitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
             android:layout_below="@+id/fragranceImage"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
@@ -36,6 +36,7 @@
         <TextView
             android:id="@+id/tvdescription"
             android:layout_width="match_parent"
+            android:textColor="#FFFFFF"
             android:layout_height="wrap_content"
             android:layout_below="@+id/fragranceImage"
             android:layout_alignParentStart="true"
@@ -49,6 +50,7 @@
         <TableLayout
             android:id="@+id/priceLinearLayout"
             android:layout_width="fill_parent"
+            android:textColor="#FFFFFF"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/tvdescription"
             android:layout_marginTop="109dp"
@@ -61,6 +63,7 @@
 
                 <TextView
                     android:layout_width="0dp"
+                    android:textColor="#FFFFFF"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:text="PRICE"
@@ -69,6 +72,7 @@
                 <TextView
                     android:id="@+id/price"
                     android:layout_width="0dp"
+                    android:textColor="#FFFFFF"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
                     android:gravity="center"
@@ -163,6 +167,8 @@
         </LinearLayout>
 
         <Button
+            android:textColor="#FFFFFF"
+            android:background="#213970"
             android:id="@+id/cart_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

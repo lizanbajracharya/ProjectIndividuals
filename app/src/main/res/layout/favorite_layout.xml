@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/contraintlayout"
+    android:id="@+id/contraintlayoutFavorite"
     android:background="#213970"
     android:layout_marginBottom="15dp"
     xmlns:tools="http://schemas.android.com/tools"
@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/image" />
 
     <TextView
-        android:id="@+id/tvBookname"
+        android:id="@+id/tvBook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -32,7 +32,7 @@
 
     <TextView
         android:visibility="invisible"
-        android:id="@+id/tvCategory"
+        android:id="@+id/tvCat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -40,10 +40,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.128"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/tvBookname" />
+        app:layout_constraintTop_toBottomOf="@+id/tvBook" />
 
     <TextView
-        android:id="@+id/tvWriter"
+        android:id="@+id/tvWrite"
         android:textColor="#FFFFFF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -51,17 +51,25 @@
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.875"
-        app:layout_constraintStart_toEndOf="@+id/tvCategory"
+        app:layout_constraintStart_toEndOf="@+id/tvCat"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvID"
+    <ImageButton
+        android:id="@+id/imgRemove"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:src="@drawable/ic_delete"
         android:layout_marginEnd="16dp"
-        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/tvIDD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:visibility="invisible"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

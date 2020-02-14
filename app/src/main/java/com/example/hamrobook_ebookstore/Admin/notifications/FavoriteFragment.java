@@ -63,24 +63,5 @@ public class FavoriteFragment extends Fragment {
                 Toast.makeText(getActivity(), "Error " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-//        listCall.enqueue(new Callback<List<Book>>() {
-//            @Override
-//            public void onResponse(Call<List<Book>> call, Response<List<Book>> response) {
-//                if(!response.isSuccessful()){
-//                    Toast.makeText(getContext(), "Toast " + response.code(), Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//                FavoriteAdapter itemAdapter=new FavoriteAdapter(getActivity(),response.body());
-//                recyclerView.setAdapter(itemAdapter);
-//                recyclerView.setHasFixedSize(true);
-//                recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),1));
-//                itemAdapter.notifyDataSetChanged();
-//            }
-//
-//            @Override
-//            public void onFailure(Call<List<Book>> call, Throwable t) {
-//                Toast.makeText(getActivity(), "Error " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
     }
 }

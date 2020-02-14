@@ -89,9 +89,9 @@ public class BookActivity extends AppCompatActivity {
         Id=tvId.getText().toString();
         // Setting values
 
-        title.setText(Title);
-        description.setText(Description);
-        price.setText(prices);
+        title.setText("Book Name: "+Title);
+        description.setText("Book Description: "+Description);
+        price.setText("Rs. "+prices);
         Picasso.get().load(Url.base_url_image+image).into(img);
 
         cart_button.setOnClickListener(new View.OnClickListener() {

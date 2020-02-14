@@ -4,14 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E69A8DFF"
     android:orientation="vertical"
     tools:context=".OrderActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
     <TextView
         android:textSize="20sp"
         android:gravity="center"
         android:textStyle="bold"
         android:text="MY ORDER HISTORY"
+        android:textColor="#FFFFFF"
         android:layout_width="match_parent"
         android:layout_marginBottom="20dp"
         android:layout_height="wrap_content"/>

@@ -1,7 +1,10 @@
 package com.example.hamrobook_ebookstore;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.app.Notification;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -15,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.hamrobook_ebookstore.Url.Url;
 import com.example.hamrobook_ebookstore.api.OrderApi;
+import com.example.hamrobook_ebookstore.channel.CreateChannel;
 import com.example.hamrobook_ebookstore.model.Order;
 
 import retrofit2.Call;
@@ -26,6 +30,7 @@ public class BuyActivity extends AppCompatActivity {
     EditText etAddress,etMobile;
     Button btnOrder,btnCancel;
     String Address,Productname,Rate,Contact;
+    NotificationManagerCompat notificationManagerCompat;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +38,7 @@ public class BuyActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_buy);
-
+        notificationManagerCompat=NotificationManagerCompat.from(this);
         tvProduct=findViewById(R.id.tvProduct);
         tvRate=findViewById(R.id.tvRate);
         etAddress=findViewById(R.id.etAddress);
@@ -57,6 +62,7 @@ public class BuyActivity extends AppCompatActivity {
         btnOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (TextUtils.isEmpty(etAddress.getText())) {
                     etAddress.setError("Please Enter Address");
                     etAddress.requestFocus();
@@ -84,9 +90,19 @@ public class BuyActivity extends AppCompatActivity {
                             Toast.makeText(BuyActivity.this, "Error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
+                    DisplayNotication();
                     finish();
                 }
             }
         });
+    }
+    public void DisplayNotication(){
+        Notification notification=new NotificationCompat.Builder(this, CreateChannel.CHANNEL_1)
+                .setSmallIcon(R.drawable.ic_notification)
+                .setContentTitle("Order")
+                .setContentText("You have successfully bought a book")
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .build();
+        notificationManagerCompat.notify(1,notification);
     }
 }

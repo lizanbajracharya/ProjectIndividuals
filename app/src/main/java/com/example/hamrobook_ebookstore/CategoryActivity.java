@@ -62,9 +62,6 @@ public class CategoryActivity extends AppCompatActivity {
         listCall.enqueue(new Callback<List<Book>>() {
             @Override
             public void onResponse(Call<List<Book>> call, Response<List<Book>> response) {
-                if(response.code()==200){
-                    Toast.makeText(CategoryActivity.this, "Toast" + response.code(), Toast.LENGTH_SHORT).show();
-                }
                 BookAdapter itemAdapter =new BookAdapter(CategoryActivity.this,response.body());
                 recyclerView.setAdapter(itemAdapter);
                 recyclerView.setHasFixedSize(true);
