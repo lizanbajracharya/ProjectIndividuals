@@ -26,4 +26,8 @@ public interface UserApi {
 
     @PATCH("user/me")
     Call<User> UpdateDetails(@Header("Authorization")String token,@Body User users);
+
+    @POST("user/logout")
+    Call<Void> logout(@Header("Authorization") String token);
 }
+

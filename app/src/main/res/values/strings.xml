@@ -27,5 +27,6 @@
     <string name="toolbar_favorite_snack">"Toolbar favorite clicked: "</string>
     <string name="wish_list">Wish List</string>
     <string name="wish_list_branch">Wish List</string>
+    <string name="title_activity_maps">Map</string>
 
 </resources>
