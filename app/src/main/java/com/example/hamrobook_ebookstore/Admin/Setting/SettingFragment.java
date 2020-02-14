@@ -20,12 +20,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hamrobook_ebookstore.MainActivity;
+import com.example.hamrobook_ebookstore.MapsActivity;
 import com.example.hamrobook_ebookstore.OrderActivity;
 import com.example.hamrobook_ebookstore.ProfileActivity;
 import com.example.hamrobook_ebookstore.R;
 import com.example.hamrobook_ebookstore.Url.Url;
 import com.example.hamrobook_ebookstore.api.UserApi;
+import com.example.hamrobook_ebookstore.bll.LogoutBll;
 import com.example.hamrobook_ebookstore.model.User;
+import com.example.hamrobook_ebookstore.strictmode.StrictModeClass;
+import com.paypal.android.sdk.payments.LoginActivity;
 import com.squareup.picasso.Picasso;
 
 import retrofit2.Call;
@@ -40,7 +44,7 @@ import static android.content.Context.MODE_PRIVATE;
 public class SettingFragment extends Fragment {
 
     TextView username,mobilenumber;
-    RelativeLayout relativelayout,relativeLayoutProfile,cart;
+    RelativeLayout relativelayout,relativeLayoutProfile,cart,relativeAbout;
     public SettingFragment() {
         // Required empty public constructor
     }
@@ -53,12 +57,32 @@ public class SettingFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_setting, container, false);
         relativelayout=root.findViewById(R.id.relativelayout);
         relativeLayoutProfile=root.findViewById(R.id.relativeLayoutProfile);
+        relativeAbout=root.findViewById(R.id.relativeAbout);
         cart=root.findViewById(R.id.cart);
         username=root.findViewById(R.id.username);
         mobilenumber=root.findViewById(R.id.tvMobile);
+
+        relativeAbout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), MapsActivity.class);
+                startActivity(intent);
+            }
+        });
+
         relativelayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                String token = Url.token;
+//
+//                LogoutBll logoutBll = new LogoutBll();
+//                StrictModeClass.StrictMode();
+//                if(logoutBll.logout(token)){
+//                    startActivity(new Intent(getActivity(), LoginActivity.class));
+//                    getActivity().finish();
+//                } else {
+//                    Toast.makeText(getActivity(), "Error logging out from this device", Toast.LENGTH_SHORT).show();
+//                }
                 SharedPreferences preferences = getContext().getSharedPreferences("User", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.clear().apply();
