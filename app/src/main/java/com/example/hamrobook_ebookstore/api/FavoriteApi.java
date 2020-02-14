@@ -1,6 +1,7 @@
 package com.example.hamrobook_ebookstore.api;
 
 import com.example.hamrobook_ebookstore.model.Book;
+import com.example.hamrobook_ebookstore.model.Favorite;
 
 import java.util.List;
 
@@ -17,5 +18,5 @@ public interface FavoriteApi {
     Call<Void> addUser(@Header("Authorization") String token, @Field("bookid") String bookid);
 
     @GET("favorite")
-    Call<List<Book>> getFavorite(@Header("Authorization") String token);
+    Call<List<Favorite>> getFavorite(@Header("Authorization") String token);
 }

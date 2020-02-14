@@ -20,6 +20,7 @@ import com.example.hamrobook_ebookstore.adapter.LatestRecyclerAdapter;
 import com.example.hamrobook_ebookstore.api.FavoriteApi;
 import com.example.hamrobook_ebookstore.api.ProductApi;
 import com.example.hamrobook_ebookstore.model.Book;
+import com.example.hamrobook_ebookstore.model.Favorite;
 import com.example.hamrobook_ebookstore.model.Product;
 
 import java.util.ArrayList;
@@ -42,10 +43,10 @@ public class FavoriteFragment extends Fragment {
 
     private void getProduct(){
         FavoriteApi favoriteApi= Url.getInstance().create(FavoriteApi.class);
-        Call<List<Book>> listCall= favoriteApi.getFavorite(Url.token);
-        listCall.enqueue(new Callback<List<Book>>() {
+        Call<List<Favorite>> listCall= favoriteApi.getFavorite(Url.token);
+        listCall.enqueue(new Callback<List<Favorite>>() {
             @Override
-            public void onResponse(Call<List<Book>> call, Response<List<Book>> response) {
+            public void onResponse(Call<List<Favorite>> call, Response<List<Favorite>> response) {
                 if(!response.isSuccessful()){
                     Toast.makeText(getContext(), "Toast " + response.code(), Toast.LENGTH_SHORT).show();
                     return;
@@ -58,9 +59,28 @@ public class FavoriteFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<List<Book>> call, Throwable t) {
+            public void onFailure(Call<List<Favorite>> call, Throwable t) {
                 Toast.makeText(getActivity(), "Error " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+//        listCall.enqueue(new Callback<List<Book>>() {
+//            @Override
+//            public void onResponse(Call<List<Book>> call, Response<List<Book>> response) {
+//                if(!response.isSuccessful()){
+//                    Toast.makeText(getContext(), "Toast " + response.code(), Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//                FavoriteAdapter itemAdapter=new FavoriteAdapter(getActivity(),response.body());
+//                recyclerView.setAdapter(itemAdapter);
+//                recyclerView.setHasFixedSize(true);
+//                recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),1));
+//                itemAdapter.notifyDataSetChanged();
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<Book>> call, Throwable t) {
+//                Toast.makeText(getActivity(), "Error " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 }

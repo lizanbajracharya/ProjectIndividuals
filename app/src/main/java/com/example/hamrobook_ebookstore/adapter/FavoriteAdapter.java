@@ -17,6 +17,7 @@ import com.example.hamrobook_ebookstore.DisplayActivity;
 import com.example.hamrobook_ebookstore.R;
 import com.example.hamrobook_ebookstore.Url.Url;
 import com.example.hamrobook_ebookstore.model.Book;
+import com.example.hamrobook_ebookstore.model.Favorite;
 import com.example.hamrobook_ebookstore.model.Product;
 import com.squareup.picasso.Picasso;
 
@@ -24,9 +25,9 @@ import java.util.List;
 
 public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.MyViewHolder> {
     private Context context;
-    private List<Book> bookList;
+    private List<Favorite> bookList;
 
-    public FavoriteAdapter(Context context, List<Book> booklist) {
+    public FavoriteAdapter(Context context, List<Favorite> booklist) {
         this.context = context;
         this.bookList = booklist;
     }
@@ -41,21 +42,21 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.MyView
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
-        final Book item=bookList.get(position);
-        holder.tvID.setText(item.getBookId());
-        holder.tvBookName.setText(item.getBookName());
-        holder.tvCategory.setText(item.getCategory());
-        holder.tvWriter.setText(item.getBookWriter());
+        final Favorite item=bookList.get(position);
+        holder.tvID.setText(item.getBook().getBookId());
+        holder.tvBookName.setText(item.getBook().getBookName());
+        holder.tvCategory.setText(item.getBook().getCategory());
+        holder.tvWriter.setText(item.getBook().getBookWriter());
         holder.constraintlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, DisplayActivity.class);
                 // passing data to the book activity
-                intent.putExtra("id",bookList.get(position).getBookId());
-                intent.putExtra("BookName",bookList.get(position).getBookName());
-                intent.putExtra("Category",bookList.get(position).getCategory());
-                intent.putExtra("Writer",bookList.get(position).getBookWriter());
-                intent.putExtra("BookContent",bookList.get(position).getBookContent());
+                intent.putExtra("id",bookList.get(position).getBook().getBookId());
+                intent.putExtra("BookName",bookList.get(position).getBook().getBookName());
+                intent.putExtra("Category",bookList.get(position).getBook().getCategory());
+                intent.putExtra("Writer",bookList.get(position).getBook().getBookWriter());
+                intent.putExtra("BookContent",bookList.get(position).getBook().getBookContent());
                 // start the activity
                 context.startActivity(intent);
             }
