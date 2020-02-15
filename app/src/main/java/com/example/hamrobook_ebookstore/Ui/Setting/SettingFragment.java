@@ -1,4 +1,4 @@
-package com.example.hamrobook_ebookstore.Admin.Setting;
+package com.example.hamrobook_ebookstore.Ui.Setting;
 
 
 import android.content.Context;
@@ -6,12 +6,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 
-import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hamrobook_ebookstore.AboutActivity;
 import com.example.hamrobook_ebookstore.MainActivity;
 import com.example.hamrobook_ebookstore.MapsActivity;
 import com.example.hamrobook_ebookstore.OrderActivity;
@@ -26,17 +23,11 @@ import com.example.hamrobook_ebookstore.ProfileActivity;
 import com.example.hamrobook_ebookstore.R;
 import com.example.hamrobook_ebookstore.Url.Url;
 import com.example.hamrobook_ebookstore.api.UserApi;
-import com.example.hamrobook_ebookstore.bll.LogoutBll;
 import com.example.hamrobook_ebookstore.model.User;
-import com.example.hamrobook_ebookstore.strictmode.StrictModeClass;
-import com.paypal.android.sdk.payments.LoginActivity;
-import com.squareup.picasso.Picasso;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
-import static android.content.Context.MODE_PRIVATE;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -44,7 +35,7 @@ import static android.content.Context.MODE_PRIVATE;
 public class SettingFragment extends Fragment {
 
     TextView username,mobilenumber;
-    RelativeLayout relativelayout,relativeLayoutProfile,cart,relativeAbout;
+    RelativeLayout relativelayout,relativeLayoutProfile,cart,relativeAbout,relativeAboutUs;
     public SettingFragment() {
         // Required empty public constructor
     }
@@ -57,6 +48,7 @@ public class SettingFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_setting, container, false);
         relativelayout=root.findViewById(R.id.relativelayout);
         relativeLayoutProfile=root.findViewById(R.id.relativeLayoutProfile);
+        relativeAboutUs=root.findViewById(R.id.relativeAboutUs);
         relativeAbout=root.findViewById(R.id.relativeAbout);
         cart=root.findViewById(R.id.cart);
         username=root.findViewById(R.id.username);
@@ -66,6 +58,14 @@ public class SettingFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getActivity(), MapsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        relativeAboutUs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), AboutActivity.class);
                 startActivity(intent);
             }
         });

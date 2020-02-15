@@ -13,7 +13,7 @@ public interface BookApi {
     Call<List<Book>> getProduct();
 
     @GET("book/getByCategory/{id}")
-    Call<List<Book>> getMedicineByID(@Path("id") String CategoryID);
+    Call<List<Book>> getBookByID(@Path("id") String CategoryID);
 
     @GET("book/search/{bookName}")
     Call<List<Book>> searchBook(@Path("bookName") String BookName);

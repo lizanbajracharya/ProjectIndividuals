@@ -1,32 +1,25 @@
-package com.example.hamrobook_ebookstore.Admin.dashboard;
+package com.example.hamrobook_ebookstore.Ui.Book;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hamrobook_ebookstore.R;
 import com.example.hamrobook_ebookstore.SearchActivity;
 import com.example.hamrobook_ebookstore.Url.Url;
-import com.example.hamrobook_ebookstore.adapter.AllAdapter;
 import com.example.hamrobook_ebookstore.adapter.BookAdapter;
-import com.example.hamrobook_ebookstore.adapter.LatestRecyclerAdapter;
 import com.example.hamrobook_ebookstore.api.BookApi;
-import com.example.hamrobook_ebookstore.api.ProductApi;
 import com.example.hamrobook_ebookstore.model.Book;
-import com.example.hamrobook_ebookstore.model.Product;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;

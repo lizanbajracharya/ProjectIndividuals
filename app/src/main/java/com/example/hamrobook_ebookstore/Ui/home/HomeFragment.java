@@ -1,4 +1,4 @@
-package com.example.hamrobook_ebookstore.Admin.home;
+package com.example.hamrobook_ebookstore.Ui.home;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -7,11 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.hamrobook_ebookstore.Admin.latest.LatestFragment;
+import com.example.hamrobook_ebookstore.Ui.latest.LatestFragment;
 import com.example.hamrobook_ebookstore.R;
 import com.example.hamrobook_ebookstore.adapter.ViewPageAdapter;
 import com.google.android.material.tabs.TabLayout;

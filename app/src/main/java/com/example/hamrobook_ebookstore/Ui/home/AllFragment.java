@@ -1,4 +1,4 @@
-package com.example.hamrobook_ebookstore.Admin.home;
+package com.example.hamrobook_ebookstore.Ui.home;
 
 
 import android.os.Bundle;
@@ -21,11 +21,9 @@ import com.example.hamrobook_ebookstore.adapter.CategoryAdapter;
 import com.example.hamrobook_ebookstore.adapter.LatestRecyclerAdapter;
 import com.example.hamrobook_ebookstore.api.CategoryApi;
 import com.example.hamrobook_ebookstore.api.ProductApi;
-import com.example.hamrobook_ebookstore.model.Book;
 import com.example.hamrobook_ebookstore.model.Category;
 import com.example.hamrobook_ebookstore.model.Product;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;

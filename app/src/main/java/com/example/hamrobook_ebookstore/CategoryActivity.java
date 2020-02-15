@@ -1,17 +1,13 @@
 package com.example.hamrobook_ebookstore;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -58,7 +54,7 @@ public class CategoryActivity extends AppCompatActivity {
         }
 
         BookApi bookApi = Url.getInstance().create(BookApi.class);
-        Call<List<Book>> listCall =bookApi.getMedicineByID(categoryid);
+        Call<List<Book>> listCall =bookApi.getBookByID(categoryid);
         listCall.enqueue(new Callback<List<Book>>() {
             @Override
             public void onResponse(Call<List<Book>> call, Response<List<Book>> response) {

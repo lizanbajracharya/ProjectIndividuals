@@ -13,10 +13,10 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.example.hamrobook_ebookstore.Admin.Setting.SettingFragment;
-import com.example.hamrobook_ebookstore.Admin.dashboard.BookFragment;
-import com.example.hamrobook_ebookstore.Admin.home.HomeFragment;
-import com.example.hamrobook_ebookstore.Admin.notifications.FavoriteFragment;
+import com.example.hamrobook_ebookstore.Ui.Setting.SettingFragment;
+import com.example.hamrobook_ebookstore.Ui.Book.BookFragment;
+import com.example.hamrobook_ebookstore.Ui.home.HomeFragment;
+import com.example.hamrobook_ebookstore.Ui.Favorite.FavoriteFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.paypal.android.sdk.payments.LoginActivity;
 

@@ -1,4 +1,4 @@
-package com.example.hamrobook_ebookstore.Admin.notifications;
+package com.example.hamrobook_ebookstore.Ui.Favorite;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,17 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hamrobook_ebookstore.R;
 import com.example.hamrobook_ebookstore.Url.Url;
-import com.example.hamrobook_ebookstore.adapter.AllAdapter;
-import com.example.hamrobook_ebookstore.adapter.BookAdapter;
 import com.example.hamrobook_ebookstore.adapter.FavoriteAdapter;
-import com.example.hamrobook_ebookstore.adapter.LatestRecyclerAdapter;
 import com.example.hamrobook_ebookstore.api.FavoriteApi;
-import com.example.hamrobook_ebookstore.api.ProductApi;
-import com.example.hamrobook_ebookstore.model.Book;
 import com.example.hamrobook_ebookstore.model.Favorite;
-import com.example.hamrobook_ebookstore.model.Product;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
