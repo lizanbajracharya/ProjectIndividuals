@@ -15,7 +15,7 @@ Features of my Project:
 5. Able to search book as per their category
 6. Book sorted based on their latest addition
 
-Android project Youtube video link: https://youtu.be/3umTZWUnVQk
+Android project Youtube video link: https://youtu.be/pRRTC6jNvME
 
 API link: https://github.com/softwarica-github/t2-backend-api-lizanbajracharya.git
 
