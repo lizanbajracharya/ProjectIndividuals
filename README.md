@@ -19,7 +19,7 @@ Android project Youtube video link: https://youtu.be/3umTZWUnVQk
 
 API link: https://github.com/softwarica-github/t2-backend-api-lizanbajracharya.git
 
-REST client : Explain about retrofit and its uses 
+REST client : Explain about retrofit and its uses :::                                                                                    
 Retrofit is a REST Client for Android and Java that makes the data retrieval and uploading of JSON through a REST based webservice. In Retrofit you configure which converter is used for the data serialization. Typically for JSON you use GSon, but you can add custom converters to process XML or other protocols. Retrofit uses the OkHttp library for HTTP requests.
   Its uses are:
  1. To convert JSON value to GSON format
