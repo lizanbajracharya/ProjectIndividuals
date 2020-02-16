@@ -18,8 +18,10 @@ import android.widget.Toast;
 
 import com.example.hamrobook_ebookstore.Url.Url;
 import com.example.hamrobook_ebookstore.api.OrderApi;
+import com.example.hamrobook_ebookstore.bll.OrderBll;
 import com.example.hamrobook_ebookstore.channel.CreateChannel;
 import com.example.hamrobook_ebookstore.model.Order;
+import com.example.hamrobook_ebookstore.strictmode.StrictModeClass;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -73,23 +75,32 @@ public class BuyActivity extends AppCompatActivity {
                     Address = etAddress.getText().toString();
                     Contact = etMobile.getText().toString();
                     Order order = new Order(Productname, Rate, Address, Contact);
-                    OrderApi orderApi = Url.getInstance().create(OrderApi.class);
-                    Call<Void> voidCall = orderApi.order(Url.token, order);
-                    voidCall.enqueue(new Callback<Void>() {
-                        @Override
-                        public void onResponse(Call<Void> call, Response<Void> response) {
-                            if (!response.isSuccessful()) {
-                                Toast.makeText(BuyActivity.this, "Code " + response.code(), Toast.LENGTH_SHORT).show();
-                                return;
-                            }
-                            Toast.makeText(BuyActivity.this, "Bought Successfully", Toast.LENGTH_SHORT).show();
-                        }
 
-                        @Override
-                        public void onFailure(Call<Void> call, Throwable t) {
-                            Toast.makeText(BuyActivity.this, "Error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                    OrderBll orderBll=new OrderBll();
+                    StrictModeClass.StrictMode();
+                    if(orderBll.orderadd(order)){
+                        Toast.makeText(BuyActivity.this, "Bought Successfully", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        Toast.makeText(BuyActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                    }
+//                    OrderApi orderApi = Url.getInstance().create(OrderApi.class);
+//                    Call<Void> voidCall = orderApi.order(Url.token, order);
+//                    voidCall.enqueue(new Callback<Void>() {
+//                        @Override
+//                        public void onResponse(Call<Void> call, Response<Void> response) {
+//                            if (!response.isSuccessful()) {
+//                                Toast.makeText(BuyActivity.this, "Code " + response.code(), Toast.LENGTH_SHORT).show();
+//                                return;
+//                            }
+//
+//                        }
+//
+//                        @Override
+//                        public void onFailure(Call<Void> call, Throwable t) {
+//                            Toast.makeText(BuyActivity.this, "Error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+//                        }
+//                    });
                     DisplayNotication();
                     finish();
                 }

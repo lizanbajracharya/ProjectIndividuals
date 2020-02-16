@@ -73,16 +73,6 @@ public class SettingFragment extends Fragment {
         relativelayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                String token = Url.token;
-//
-//                LogoutBll logoutBll = new LogoutBll();
-//                StrictModeClass.StrictMode();
-//                if(logoutBll.logout(token)){
-//                    startActivity(new Intent(getActivity(), LoginActivity.class));
-//                    getActivity().finish();
-//                } else {
-//                    Toast.makeText(getActivity(), "Error logging out from this device", Toast.LENGTH_SHORT).show();
-//                }
                 SharedPreferences preferences = getContext().getSharedPreferences("User", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.clear().apply();

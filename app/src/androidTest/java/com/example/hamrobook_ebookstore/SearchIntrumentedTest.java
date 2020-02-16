@@ -38,7 +38,7 @@ public class SearchIntrumentedTest {
         onView(withId(R.id.navigation_dashboard)).perform(click());
 
         onView(withId(R.id.ivSearch)).perform(click());
-        onView(withId(R.id.tvSearch)).perform(typeText("Namaste"));
+        onView(withId(R.id.tvSearch)).perform(typeText("Guilt"));
         closeSoftKeyboard();
 
         onView(withId(R.id.imgSearch)).perform(click());

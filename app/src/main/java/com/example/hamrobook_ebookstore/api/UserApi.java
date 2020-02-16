@@ -19,7 +19,7 @@ public interface UserApi {
 
     @FormUrlEncoded
     @POST("user/login")
-    Call<SignUpResponse> checkUser(@Field("username") String number, @Field("password") String password);
+    Call<SignUpResponse> checkUser(@Field("username") String username, @Field("password") String password);
 
     @GET("user/me")
     Call<User> getUserDetails(@Header("Authorization")String token);

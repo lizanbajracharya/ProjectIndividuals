@@ -14,8 +14,10 @@ import android.widget.Toast;
 
 import com.example.hamrobook_ebookstore.Url.Url;
 import com.example.hamrobook_ebookstore.api.UserApi;
+import com.example.hamrobook_ebookstore.bll.Edituserbll;
 import com.example.hamrobook_ebookstore.model.User;
 import com.example.hamrobook_ebookstore.serverresponse.SignUpResponse;
+import com.example.hamrobook_ebookstore.strictmode.StrictModeClass;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -73,26 +75,39 @@ public class ProfileActivity extends AppCompatActivity {
                 String name = etUsernameUpdate.getText().toString();
                 String password = etPasswordUpdate.getText().toString();
                 User users = new User(number, password, email, name);
-                UserApi usersAPI = Url.getInstance().create(UserApi.class);
-                final Call<User> userCall = usersAPI.UpdateDetails(Url.token,users);
 
-                userCall.enqueue(new Callback<User>() {
-                    @Override
-                    public void onResponse(Call<User> call, Response<User> response) {
-                        if (!response.isSuccessful()) {
-                            Toast.makeText(ProfileActivity.this, "Code " + response.code(), Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                        Toast.makeText(ProfileActivity.this, "Updated", Toast.LENGTH_SHORT).show();
-                        Intent intent=new Intent(ProfileActivity.this,DashboardActivity.class);
-                        startActivity(intent);
-                    }
+                Edituserbll edituserbll=new Edituserbll();
+                StrictModeClass.StrictMode();
 
-                    @Override
-                    public void onFailure(Call<User> call, Throwable t) {
-                        Toast.makeText(ProfileActivity.this, "Error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+                if(edituserbll.Useredit(users)){
+                    Toast.makeText(ProfileActivity.this, "Updated", Toast.LENGTH_SHORT).show();
+                    Intent intent=new Intent(ProfileActivity.this,DashboardActivity.class);
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(ProfileActivity.this, "Error" , Toast.LENGTH_SHORT).show();
+                }
+
+//                UserApi usersAPI = Url.getInstance().create(UserApi.class);
+//                final Call<User> userCall = usersAPI.UpdateDetails(Url.token,users);
+//
+//                userCall.enqueue(new Callback<User>() {
+//                    @Override
+//                    public void onResponse(Call<User> call, Response<User> response) {
+//                        if (!response.isSuccessful()) {
+//                            Toast.makeText(ProfileActivity.this, "Code " + response.code(), Toast.LENGTH_SHORT).show();
+//                            return;
+//                        }
+//                        Toast.makeText(ProfileActivity.this, "Updated", Toast.LENGTH_SHORT).show();
+//                        Intent intent=new Intent(ProfileActivity.this,DashboardActivity.class);
+//                        startActivity(intent);
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<User> call, Throwable t) {
+//                        Toast.makeText(ProfileActivity.this, "Error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+//                    }
+//                });
             }
         });
 

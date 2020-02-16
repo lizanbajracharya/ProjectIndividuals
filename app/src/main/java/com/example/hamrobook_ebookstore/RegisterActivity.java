@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
@@ -14,8 +15,10 @@ import android.widget.Toast;
 
 import com.example.hamrobook_ebookstore.Url.Url;
 import com.example.hamrobook_ebookstore.api.UserApi;
+import com.example.hamrobook_ebookstore.bll.SignupBll;
 import com.example.hamrobook_ebookstore.model.User;
 import com.example.hamrobook_ebookstore.serverresponse.SignUpResponse;
+import com.example.hamrobook_ebookstore.strictmode.StrictModeClass;
 
 import br.com.simplepass.loading_button_lib.Utils;
 import br.com.simplepass.loading_button_lib.UtilsJava;
@@ -70,24 +73,34 @@ public class RegisterActivity extends AppCompatActivity {
 
                     User users = new User(number, password, email, name);
 
-                    UserApi usersAPI = Url.getInstance().create(UserApi.class);
-                    Call<SignUpResponse> signUpCall = usersAPI.registerUser(users);
-
-                    signUpCall.enqueue(new Callback<SignUpResponse>() {
-                        @Override
-                        public void onResponse(Call<SignUpResponse> call, Response<SignUpResponse> response) {
-                            if (!response.isSuccessful()) {
-                                Toast.makeText(RegisterActivity.this, "Code " + response.code(), Toast.LENGTH_SHORT).show();
-                                return;
-                            }
-                            Toast.makeText(RegisterActivity.this, "Registered", Toast.LENGTH_SHORT).show();
-                        }
-
-                        @Override
-                        public void onFailure(Call<SignUpResponse> call, Throwable t) {
-                            Toast.makeText(RegisterActivity.this, "Error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                    SignupBll signupBll=new SignupBll();
+                    StrictModeClass.StrictMode();
+                    if(signupBll.Useradd(users)){
+                        Toast.makeText(RegisterActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                        Intent intent=new Intent(RegisterActivity.this,MainActivity.class);
+                        startActivity(intent);
+                    }
+                    else {
+                        Toast.makeText(RegisterActivity.this, "Either username or password is incorrect", Toast.LENGTH_SHORT).show();
+                    }
+//                    UserApi usersAPI = Url.getInstance().create(UserApi.class);
+//                    Call<SignUpResponse> signUpCall = usersAPI.registerUser(users);
+//
+//                    signUpCall.enqueue(new Callback<SignUpResponse>() {
+//                        @Override
+//                        public void onResponse(Call<SignUpResponse> call, Response<SignUpResponse> response) {
+//                            if (!response.isSuccessful()) {
+//                                Toast.makeText(RegisterActivity.this, "Code " + response.code(), Toast.LENGTH_SHORT).show();
+//                                return;
+//                            }
+//                            Toast.makeText(RegisterActivity.this, "Registered", Toast.LENGTH_SHORT).show();
+//                        }
+//
+//                        @Override
+//                        public void onFailure(Call<SignUpResponse> call, Throwable t) {
+//                            Toast.makeText(RegisterActivity.this, "Error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+//                        }
+//                    });
                     etEmail.getText().clear();
                     etPass.getText().clear();
                     etNumber.getText().clear();
